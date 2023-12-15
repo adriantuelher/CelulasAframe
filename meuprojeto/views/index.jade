@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  a-scene(inspector-plugin-recast cursor='rayOrigin: mouse' raycaster='objects: .raycastable')
+    a-assets(id="mito_asset" src='audio/mitocondria.mp3' preload="auto")
+    a-assets(id="nu_asset" src='audio/nucleo.mp3' preload="auto")
+    a-assets(id="mem_asset" src='audio/Membrana.mp3' preload="auto")
+    
+    a-entity(id="mito" sound="src: #mito_asset")
+    a-entity(id="nu" sound="src: #nu_asset")
+    a-entity(id="mem" sound="src: #mem_asset")
+   
+    a-camera(position="-0.393 3 7")
+      a-cursor()
+    a-assets-iten(id='cell' src='models/scene.gltf')
+    a-entity(gltf-model='#cell')
+    a-sphere(position="-0.362 0.047 3.253" scale="2 1 1" radius="0.23" color="#cccccc" id='condria' visible="false" audio)
+    a-sphere(position="-0.337 0.323 -0.512" scale="1 1 1" radius="0.3" color="#cccccc" id='cleo' visible="false" audio)
+    a-torus(position="-0.111 -1.187 0.450" scale="0.956 1.177 -2.636" rotation="-88.216 0 0" radius="3" color="#cccccc" id='brana' visible="false" audio)
+    a-box(position="0 -4 0" opacity="0.2" scale="30 0.2 30" )
+    a-sky(src='images/image.jpg')
+    
+
+
+
+    script(src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js")
